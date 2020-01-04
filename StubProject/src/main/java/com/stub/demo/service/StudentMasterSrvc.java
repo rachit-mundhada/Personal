@@ -1,6 +1,9 @@
 package com.stub.demo.service;
 
 import java.util.List;
+import java.util.Optional;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.google.gson.Gson;
 import com.stub.demo.masters.StudentMaster;
 import com.stub.demo.repository.StudentsDAOImpl;
+import com.stub.demo.request.StudentRequest;
 
 @Service
 public class StudentMasterSrvc {
@@ -35,4 +39,35 @@ public class StudentMasterSrvc {
 		}
 
 	}
+@Transactional
+	public String saveStudent(StudentRequest studentRequest) {
+		// TODO Auto-generated method stub
+		
+		try {
+		StudentMaster studentMaster=new StudentMaster();
+		studentMaster.setStudentDOB(studentRequest.getStudentDOB());
+		
+		studentMaster.setStudentName(studentRequest.getStudentName());
+		studentsDAOImpl.save(studentMaster);
+		return "Details saved successfully";
+		}
+		catch (Exception e)
+		{
+			return "Something went wrong. Details not saved please try again.";
+		}
+		
+		
+	}
+public String getDetailsByIdSrvc(Integer id) {
+	Optional<StudentMaster> studenMaster =studentsDAOImpl.findById(id);
+	Gson gson =new Gson ();
+	
+	// TODO Auto-generated method stub
+	return gson.toJson(studenMaster);
+}
+public String deleteDetailsById(Integer id) {
+	// TODO Auto-generated method stub
+	studentsDAOImpl.deleteById(id);
+	return null;
+}
 }
