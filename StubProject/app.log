@@ -1,0 +1,12 @@
+2019-08-26 22:44:19,458 INFO com.stub.demo.StubProjectApplication [main] Starting StubProjectApplication on RachitMundhada with PID 13488 (C:\Users\rachi\WorkSpaces\SpringDemo\StubProject\target\classes started by rachi in C:\Users\rachi\WorkSpaces\SpringDemo\StubProject)
+2019-08-26 22:44:19,460 INFO com.stub.demo.StubProjectApplication [main] No active profile set, falling back to default profiles: default
+2019-08-26 22:44:20,445 INFO org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2019-08-26 22:44:20,446 INFO org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.22]
+2019-08-26 22:44:20,559 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2019-08-26 22:44:20,780 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.3.10.Final}
+2019-08-26 22:44:20,780 INFO org.hibernate.cfg.Environment [main] HHH000206: hibernate.properties not found
+2019-08-26 22:44:20,865 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2019-08-26 22:44:21,134 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.SQLServer2012Dialect
+2019-08-26 22:44:22,041 INFO com.stub.demo.StubProjectApplication [main] Started StubProjectApplication in 2.873 seconds (JVM running for 3.479)
+2019-08-26 22:44:45,047 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-08-26 22:44:45,199 INFO com.stub.demo.controller.DetailsFeedController [http-nio-8080-exec-1] In the add city names controller class...
