@@ -41,29 +41,32 @@
         <artifactId>spring-boot-starter-tomcat</artifactId>
         <scope>provided</scope>
     </dependency> --> 
-    <dependency>
+    <!-- <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
     <artifactId>jackson-databind</artifactId>
-</dependency>
+</dependency> -->
   <!--   <dependency>
     <groupId>javax.servlet</groupId>
     <artifactId>jstl</artifactId>
     <scope>provided</scope>
 </dependency> -->
+
 <dependency>
-    <groupId>org.apache.tomcat.embed</groupId>
-    <artifactId>tomcat-embed-jasper</artifactId>
-    <scope>provided</scope>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <exclusions>
+        <exclusion>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+        </exclusion>
+    </exclusions>
 </dependency>
 <dependency>
-<groupId>org.springframework.boot</groupId>
-<artifactId>spring-boot-starter-security</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-tomcat</artifactId>
 </dependency>
-<dependency>
-<groupId>io.jsonwebtoken</groupId>
-<artifactId>jjwt</artifactId>
-<version>0.9.1</version>
-</dependency>
+
+
  <dependency>
     <groupId>org.aspectj</groupId>
     <artifactId>aspectjweaver</artifactId>

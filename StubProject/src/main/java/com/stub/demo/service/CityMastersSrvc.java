@@ -43,7 +43,6 @@ public class CityMastersSrvc {
 		List<CityMastersEntity> cityList=masterDao.getCity();
 		return new Gson().toJson(cityList );
 		
-		
 	}
 
 	public String addCityDetails(String cityDetails) {
