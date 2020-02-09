@@ -12,6 +12,8 @@ import com.google.gson.Gson;
 import com.stub.demo.masters.StudentMaster;
 import com.stub.demo.repository.StudentsDAOImpl;
 import com.stub.demo.request.StudentRequest;
+import com.stub.demo.responses.ResponseBody;
+import com.stub.demo.responses.StudenDetailResponse;
 
 @Service
 public class StudentMasterSrvc {
@@ -61,13 +63,22 @@ public class StudentMasterSrvc {
 public String getDetailsByIdSrvc(Integer id) {
 	Optional<StudentMaster> studenMaster =studentsDAOImpl.findById(id);
 	Gson gson =new Gson ();
-	
+	StudenDetailResponse studentDetailResponse=new StudenDetailResponse();
+	//studentDetailResponse.setStudentDOB(studenMaster.get(0));
 	// TODO Auto-generated method stub
 	return gson.toJson(studenMaster);
 }
 public String deleteDetailsById(Integer id) {
 	// TODO Auto-generated method stub
 	studentsDAOImpl.deleteById(id);
+	ResponseBody reponse=new ResponseBody();
+	
+	
+	return new Gson().toJson(reponse);
+}
+public String updateStudent(StudentRequest studentRequest) {
+	// TODO Auto-generated method stub
+	//studentsDAOImpl.
 	return null;
 }
 }

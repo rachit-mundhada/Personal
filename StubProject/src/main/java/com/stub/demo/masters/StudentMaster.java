@@ -1,12 +1,16 @@
 package com.stub.demo.masters;
 
+import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class StudentMaster {
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer studentId;
 	private String studentName;
 	@Column(name = "DOB")
