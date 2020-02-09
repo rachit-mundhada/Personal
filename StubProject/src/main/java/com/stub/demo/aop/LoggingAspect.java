@@ -7,7 +7,7 @@ import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-
+import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
@@ -31,6 +31,12 @@ public class LoggingAspect {
 	        
 	}
 
+	@Before("execution(* com.stub.demo.repository..*(..))")
+	public void beforeRunningDAOMethods()
+	{
+		System.out.println("In the beforeMethod");
+		  logger.info("Going to database to fetch the data.");
+	}
 	  @AfterThrowing ( pointcut = "execution (* com.stub.demo..*(..))", throwing ="e") 
 	  public void afterThrowingMethod(Exception e) {
 	  System.out.println("In the afterThrowingMethod");
