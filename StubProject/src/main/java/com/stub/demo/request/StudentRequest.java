@@ -1,16 +1,20 @@
 package com.stub.demo.request;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class StudentRequest {
 
-	
+	@NotBlank(message = "Student Name cannot be empty.")
 	private String studentName;
+	@NotNull(message = "Student id cannot be null.")
 	private String studentId;
 	private String studentClass;
 	private String studentDOB;
 	private String studentDOJ;
 	private String fees;
 	private String imageUrl;
-	private String rating;
+	private String studentRating;
 	public String getStudentName() {
 		return studentName;
 	}
@@ -53,11 +57,21 @@ public class StudentRequest {
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
-	public String getRating() {
-		return rating;
+	public String getStudentRating() {
+		return studentRating;
 	}
-	public void setRating(String rating) {
-		this.rating = rating;
+	public void setStudentRating(String studentRating) {
+		this.studentRating = studentRating;
 	}
+	@Override
+	public String toString() {
+		return "StudentRequest [studentName=" + studentName + ", studentId=" + studentId + ", studentClass="
+				+ studentClass + ", studentDOB=" + studentDOB + ", studentDOJ=" + studentDOJ + ", fees=" + fees
+				+ ", imageUrl=" + imageUrl + ", studentRating=" + studentRating + "]";
+	}
+	
+
+	
+	
 	
 }

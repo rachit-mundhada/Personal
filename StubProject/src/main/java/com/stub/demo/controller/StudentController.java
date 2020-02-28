@@ -1,6 +1,10 @@
 package com.stub.demo.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,10 +40,16 @@ public class StudentController {
 		return studentMasterSrvc.getDetailsByIdSrvc(id);
 	}
 
-	@PostMapping(value = "saveStudent")
-	public String saveStudent(@RequestBody StudentRequest studentRequest) {
-
-		return studentMasterSrvc.saveStudent(studentRequest);
+	@PostMapping( value = "saveStudent")
+	public ResponseEntity<StudentRequest> saveStudent(@Valid @RequestBody StudentRequest studentRequest) {
+		String returnMessage=studentMasterSrvc.saveStudent(studentRequest);
+		if (null != returnMessage && returnMessage.contains("successfully")) {
+			return ResponseEntity.ok(studentRequest);
+		}
+		else
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(studentRequest);
+	
+		 
 	}
 
 	@GetMapping(value = "/deleteDetailsById/{id}")

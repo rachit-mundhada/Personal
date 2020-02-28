@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
 import com.stub.demo.masters.StudentMaster;
+import com.stub.demo.masters.StudentMasterEntity;
 import com.stub.demo.repository.StudentsDAOImpl;
 import com.stub.demo.request.StudentRequest;
 import com.stub.demo.responses.ResponseBody;
@@ -24,7 +25,7 @@ public class StudentMasterSrvc {
 	public String getAllDetailsSrvc() {
 		Gson gson = new Gson();
 		try {
-			List<StudentMaster> studentList = studentsDAOImpl.findAll();
+			List<StudentMasterEntity> studentList = studentsDAOImpl.findAll();
 			if (null != studentList && studentList.size()>0) {
 				return gson.toJson(studentList);
 
@@ -46,12 +47,15 @@ public class StudentMasterSrvc {
 		// TODO Auto-generated method stub
 		
 		try {
-		StudentMaster studentMaster=new StudentMaster();
+		StudentMasterEntity studentMaster=new StudentMasterEntity();
 		studentMaster.setStudentDOB(studentRequest.getStudentDOB());
-		
+		studentMaster.setFees(studentRequest.getFees());
+		studentMaster.setRatings(studentRequest.getStudentRating());
+		studentMaster.setStudentDOB(studentRequest.getStudentDOB());
+		studentMaster.setStudentDOJ(studentRequest.getStudentDOJ());
 		studentMaster.setStudentName(studentRequest.getStudentName());
 		studentsDAOImpl.save(studentMaster);
-		return "Details saved successfully";
+		return "Details saved";
 		}
 		catch (Exception e)
 		{
@@ -61,12 +65,27 @@ public class StudentMasterSrvc {
 		
 	}
 public String getDetailsByIdSrvc(Integer id) {
-	Optional<StudentMaster> studenMaster =studentsDAOImpl.findById(id);
+	Optional<StudentMasterEntity> studenMaster =studentsDAOImpl.findById(id);
+	StudentMasterEntity student=new StudentMasterEntity();
+	if (studenMaster.isPresent())
+	{
+		
+		student=studenMaster.get();
+	
+			/*
+			 * master.setFees(student.getFees()); master.setRatings(student.getRatings());
+			 * master.setStudentDOB(student.getStudentDOB());
+			 * master.setStudentDOJ(student.getStudentDOJ());
+			 * master.setStudentId(student.getStudentId());
+			 * master.setStudentName(student.getStudentName());
+			 * master.setStudentStandard(student.getStudentStandard());
+			 */
+	}
+	
 	Gson gson =new Gson ();
-	StudenDetailResponse studentDetailResponse=new StudenDetailResponse();
-	//studentDetailResponse.setStudentDOB(studenMaster.get(0));
-	// TODO Auto-generated method stub
-	return gson.toJson(studenMaster);
+	
+	
+	return gson.toJson(student);
 }
 public String deleteDetailsById(Integer id) {
 	// TODO Auto-generated method stub
