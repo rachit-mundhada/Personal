@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+	options { disableConcurrentBuilds() }
+	
+	environment{
+		APP_NAME = 'Stub_Project'
+		
+	}
+    stages {
+        stage ('Build') {
+
+            steps {
+                echo "Building Multibranch Pipeline"
+                bat "mvn clean install"
+            }
+        }
+
+        stage ('Testing') {
+
+            steps {
+                echo "Testing Multibranch Pipeline"
+            }
+        }
+
+
+        stage ('Deployment') {
+            steps {                
+                echo "False Deploying Multibranch Pipeline"
+            }
+        }
+    }
+}

@@ -1,16 +1,42 @@
 package com.stub.demo.request;
 
-public class StudentRequest {
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
-	
+import com.stub.demo.masters.EmailGroup;
+import com.stub.demo.masters.FeeGroup;
+
+
+public class StudentRequest {
+	@NotBlank(message = "Student Name cannot be empty.")
+	@NotNull(message="Student name can not be null")
 	private String studentName;
+	//@NotNull(message = "Student id cannot be null.")
 	private String studentId;
-	private String studentClass;
+	private String studentStandard;
 	private String studentDOB;
 	private String studentDOJ;
-	private String fees;
+	private FeeGroup feeGroup;
 	private String imageUrl;
-	private String rating;
+	private EmailGroup emailGroup;
+	private String studentRating;
+	private String phone;
+	private String notification;
+	
+	
+	
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getNotification() {
+		return notification;
+	}
+	public void setNotification(String notification) {
+		this.notification = notification;
+	}
 	public String getStudentName() {
 		return studentName;
 	}
@@ -23,11 +49,12 @@ public class StudentRequest {
 	public void setStudentId(String studentId) {
 		this.studentId = studentId;
 	}
-	public String getStudentClass() {
-		return studentClass;
+	
+	public String getStudentStandard() {
+		return studentStandard;
 	}
-	public void setStudentClass(String studentClass) {
-		this.studentClass = studentClass;
+	public void setStudentStandard(String studentStandard) {
+		this.studentStandard = studentStandard;
 	}
 	public String getStudentDOB() {
 		return studentDOB;
@@ -41,23 +68,39 @@ public class StudentRequest {
 	public void setStudentDOJ(String studentDOJ) {
 		this.studentDOJ = studentDOJ;
 	}
-	public String getFees() {
-		return fees;
-	}
-	public void setFees(String fees) {
-		this.fees = fees;
-	}
+	
 	public String getImageUrl() {
 		return imageUrl;
 	}
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
-	public String getRating() {
-		return rating;
+	public String getStudentRating() {
+		return studentRating;
 	}
-	public void setRating(String rating) {
-		this.rating = rating;
+	public void setStudentRating(String studentRating) {
+		this.studentRating = studentRating;
 	}
 	
+	public FeeGroup getFeeGroup() {
+		return feeGroup;
+	}
+	public void setFeeGroup(FeeGroup feeGroup) {
+		this.feeGroup = feeGroup;
+	}
+	
+	public EmailGroup getEmailGroup() {
+		return emailGroup;
+	}
+	public void setEmailGroup(EmailGroup emailGroup) {
+		this.emailGroup = emailGroup;
+	}
+	
+	@Override
+	public String toString() {
+		return "StudentRequest [studentName=" + studentName + ", studentId=" + studentId + ", studentStandard="
+				+ studentStandard + ", studentDOB=" + studentDOB + ", studentDOJ=" + studentDOJ + ", feeGroup="
+				+ feeGroup + ", imageUrl=" + imageUrl + ", emailGroup=" + emailGroup + ", studentRating="
+				+ studentRating + ", phone=" + phone + ", notification=" + notification + "]";
+	}
 }
